@@ -1,0 +1,20 @@
+def reverseinteger(x):
+    INTMAX = 2**31 - 1
+    INTMIN = -2**31
+    reversedx = 0
+    if x < 0:
+        sign = -1
+        x = abs(x)
+    else:
+        sign = 1
+    while x != 0:
+        digit = x % 10
+        reversedx = reversedx * 10 + digit
+        x //= 10
+    reversedx *= sign
+    if reversedx < INTMIN or reversedx > INTMAX:
+        return 0
+    else:
+        return reversedx
+x = 123
+print(reverseinteger(x)) 
