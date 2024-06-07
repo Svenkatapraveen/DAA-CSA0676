@@ -1,0 +1,17 @@
+def longestsubstring(s):
+    if not s:
+        return ""
+    start = 0  
+    maxlength = 0  
+    maxstart = 0 
+    charindex = {} 
+    for i, char in enumerate(s):
+        if char in charindex and charindex[char] >= start:
+            start = charindex[char] + 1
+        charindex[char] = i
+        if i - start + 1 > maxlength:
+            maxlength = i - start + 1
+            maxstart = start
+    return s[maxstart:maxstart + maxlength]
+s = "abcabcbb"
+print(longestsubstring(s))  
